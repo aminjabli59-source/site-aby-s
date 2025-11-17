@@ -1,0 +1,180 @@
+/* --- VARIABLES CSS (GESTION FACILE DES COULEURS) --- */
+:root {
+    /* Couleurs de base du thème */
+    --couleur-primaire: #4a80ff;     /* Bleu VIF (Logo, Titre, Liens) */
+    --couleur-secondaire: #e0e0ff;   /* Blanc/Gris clair (Texte principal) */
+    
+    /* Couleur d'ACCENT (Vert Néon pour un effet futuriste) */
+    --couleur-accent: #00ff73;       /* NOUVELLE COULEUR ! */
+}
+
+
+/* --- 1. STYLES DE BASE (BODY, TITRES) --- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Utilisation de votre image futuriste comme fond */
+    background-image: url('images/PAGE\ DE\ GARDE.png');
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center;
+
+    color: var(--couleur-secondaire); /* Utilise la variable claire */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: var(--couleur-primaire); /* Utilise la variable bleue */
+    text-align: center;
+}
+
+p {
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--couleur-accent); /* Utilise la nouvelle couleur d'accent */
+    text-align: center; 
+}
+
+
+/* --- 2. STYLES DU HEADER ET DE LA NAVIGATION --- */
+
+.main-header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 40px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 2px solid var(--couleur-primaire); 
+    margin: -20px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    color: var(--couleur-primaire); 
+    font-size: 1.6em;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    color: var(--couleur-secondaire); 
+    text-decoration: none;
+    font-size: 1em;
+    padding-bottom: 3px;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: var(--couleur-accent); /* Utilise la couleur d'accent pour le survol */
+    border-bottom: 2px solid var(--couleur-accent); 
+}
+
+
+/* --- 3. STYLES DU CATALOGUE ET DES CARTES --- */
+
+.catalogue {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+    margin-top: 50px;
+}
+
+.carte-produit {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative; 
+    color: #333;
+}
+
+
+/* --- 4. GESTION DES IMAGES ET DE L'EFFET DE SURVOL --- */
+
+/* La zone qui contient les images (fixe la hauteur) */
+.zone-image {
+    position: relative; 
+    height: 200px; 
+    margin-bottom: 15px;
+    overflow: hidden; 
+    border-radius: 5px; 
+}
+
+/* Les deux images sont superposées et remplissent la zone-image */
+.zone-image img {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* L'image de survol est invisible par défaut */
+.image-survol {
+    opacity: 0; 
+}
+
+/* Au survol de la CARTE, on inverse la visibilité */
+.carte-produit:hover .image-principale {
+    opacity: 0;
+}
+
+.carte-produit:hover .image-survol {
+    opacity: 1;
+}
+
+
+/* --- 5. STYLES DES ÉLÉMENTS (PRIX/BOUTON) --- */
+
+.prix {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #008000; /* Vert fixe pour le prix (traditionnel) */
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: var(--couleur-primaire); /* Utilise le bleu primaire */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0052a3; /* Un bleu légèrement plus foncé au survol */
+}
+/* --- CORRECTION POUR RENDRE LE BOUTON CLICABLE --- */
+
+/* La balise 'a' qui entoure le bouton doit se comporter comme un bloc pour prendre toute la place */
+/* --- CORRECTION POUR RENDRE LE BOUTON CLICABLE (Version FORCÉE) --- */
+
+.carte-produit a {
+    text-decoration: none; /* Enlève le soulignement sur les liens */
+    display: block; /* Le lien prend la largeur du bouton */
+    width: 100%; /* Force le lien à prendre la largeur maximale */
+    height: 100%; /* S'assure qu'il prend toute la hauteur */
+    margin: 0 auto; /* Centre si besoin */
+}
